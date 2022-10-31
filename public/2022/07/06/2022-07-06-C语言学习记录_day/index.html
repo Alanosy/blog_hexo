@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.13.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>C语言学习记录 - Alan_blog</title>
+
+  
+    <meta name="description" content="简介&amp;emsp;&amp;emsp;今天，我买的计算机相关书籍回来了，正好将之前学漏的回炉重造下，关于学C还是学java我纠结了很久，最后还是打算先把C语言学完，然后在学java。现在从C语言最初的内容开始学，好了下面开始正式内容。 什么是计算机程序？&amp;emsp;&amp;emsp;所谓程序，就是一组计算机能识别和执行的指令，每一条指令使计算机执行特定的操作。只要让计算机执行这个程序，计算机就会“自动地”执行各条">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习记录">
+<meta property="og:url" content="https://www.alan.org.cn/2022/07/06/2022-07-06-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95_day/index.html">
+<meta property="og:site_name" content="Alan_blog">
+<meta property="og:description" content="简介&amp;emsp;&amp;emsp;今天，我买的计算机相关书籍回来了，正好将之前学漏的回炉重造下，关于学C还是学java我纠结了很久，最后还是打算先把C语言学完，然后在学java。现在从C语言最初的内容开始学，好了下面开始正式内容。 什么是计算机程序？&amp;emsp;&amp;emsp;所谓程序，就是一组计算机能识别和执行的指令，每一条指令使计算机执行特定的操作。只要让计算机执行这个程序，计算机就会“自动地”执行各条">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/20210427074620328.gif">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-07-09%20%E4%B8%8B%E5%8D%8810.26.38.png">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/e51dd0cb01e844a49683da13e756e937.png">
+<meta property="article:published_time" content="2022-07-06T13:07:32.000Z">
+<meta property="article:modified_time" content="2022-10-28T03:45:13.031Z">
+<meta property="article:author" content="Alan">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/20210427074620328.gif">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan_blog</div></a></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" href="/index">主页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a></nav>
+</header>
+
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言学习记录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-text">什么是计算机程序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="toc-text">计算机语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">C语言的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F"><span class="toc-text">最简单的C语言程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">C语言的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E5%8C%85%E6%8B%AC%E4%B8%A4%E4%B8%AA%E9%83%A8%E5%88%86"><span class="toc-text">一个函数包括两个部分</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-text">程序设计的任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95"><span class="toc-text">什么是算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">算法的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">结构化程序设计方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A%E8%BF%99%E7%AF%87%E5%B1%9E%E4%BA%8E%E5%90%8E%E9%9D%A2%E7%9A%84%E7%AF%87%E7%AB%A0"><span class="toc-text">注意：这篇属于后面的篇章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-text">递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%94%A8%E9%80%94-%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="toc-text">递归用途 汉诺塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">访问结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84"><span class="toc-text">初始化数组</span></a></li></ol></div></div></div>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-07-06T13:07:32.000Z">2022-07-06</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>C语言学习记录</span></h1>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;今天，我买的计算机相关书籍回来了，正好将之前学漏的回炉重造下，关于学C还是学java我纠结了很久，最后还是打算先把C语言学完，然后在学java。现在从C语言最初的内容开始学，好了下面开始正式内容。</p>
+<h2 id="什么是计算机程序？"><a href="#什么是计算机程序？" class="headerlink" title="什么是计算机程序？"></a>什么是计算机程序？</h2><p>&emsp;&emsp;所谓程序，就是一组计算机能识别和执行的指令，每一条指令使计算机执行特定的操作。只要让计算机执行这个程序，计算机就会“自动地”执行各条指令。</p>
+<p>&emsp;&emsp;为了使计算机系统能实现各种功能，需要成千上万个程序组成。</p>
+<p>&emsp;    计算机的一切操作都是由程序控制的，离开程序，计算机将一事无成</p>
+<h2 id="计算机语言"><a href="#计算机语言" class="headerlink" title="计算机语言"></a>计算机语言</h2><p>&emsp;&emsp;所谓语言，就是一门沟通的工具，人与人有中文和英文等等，则机器与机器也有自己独特的语言。为了能使人与计算机交互，需要创造一种计算机和人都能识别的语言，这就是计算机语言。计算机语言的发展分为以下阶段：</p>
+<p>&emsp;&emsp;<strong>机器语言</strong>  计算机工作是基于二进制，从根本上讲计算机只能识别由0和1组成的指令。这种计算机能直接识别和接受的二进制代码称为机器指令。机器指令的集合就是该计算机的机器语言。</p>
+<p>&emsp;&emsp;<strong>符号语言</strong>  为了克服机器语言上的困难，人们创造了符号语言，它用一些英文字母和数字表示一个指令，它需要用一种称为汇编程序的软件把符号语言转化为机器指令。一般，一条符号语言的指令对应转换为一条机器指令。转换过程称为“代真”或“汇编”，因此，符号语言又称为汇编语言。</p>
+<p>&emsp;&emsp;<strong>高级语言</strong>  为了克服第几语言的缺陷，人们创造了高级语言，它很接近于人们习惯使用的自然语言和数学语言。程序中用到的语句和指令都是用英文单词表示，程序中所用的运算符和运算表达式和人们日常生活中所用到的数学式子差不多，更容易理解。</p>
+<p>&emsp;&emsp;当然，计算机也不能直接识别高级程序，业需要进行翻译，我们把刚刚编写的代码称为源程序，把转换得到的程序称为目标程序。</p>
+<p>&emsp;&emsp;并且高级语言经历了非结构化的语言、结构化语言、面向对象的语言这三种过程。</p>
+<h2 id="C语言的特点"><a href="#C语言的特点" class="headerlink" title="C语言的特点"></a>C语言的特点</h2><p>1.语言简洁、紧凑、使用方便、灵活。</p>
+<p>2.运算符丰富</p>
+<p>3.数据类型丰富</p>
+<p>4.具有结构化的到控制语句</p>
+<p>5.语法限制不太严格，程序设计自由度大</p>
+<p>6.C语言允许直接访问物理地址，能进行bit的操作，能实现汇编语言的大部分功能，可以直接对硬件进行操作</p>
+<p>7.C语言编写的程序可移植性好</p>
+<p>8.生成的目标代码质量高，程序执行效率高</p>
+<h2 id="最简单的C语言程序"><a href="#最简单的C语言程序" class="headerlink" title="最简单的C语言程序"></a>最简单的C语言程序</h2><p>1.1要求在屏幕上输出一下一行信息。</p>
+<p>This is a C program.</p>
+<p>思路：在主函数中用printf函数原样输出该以上文字。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>										<span class="comment">//这是编译预处理指令</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>														<span class="comment">//定义主函数</span></span><br><span class="line">&#123;																			<span class="comment">//函数开始的标志</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;This is a C program.\n&quot;</span>)		<span class="comment">//输出所指定的一行信息</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;														<span class="comment">//函数执行完毕时返回函数值0</span></span><br><span class="line">&#125;																			<span class="comment">//函数结束的标志</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="C语言的基本结构"><a href="#C语言的基本结构" class="headerlink" title="C语言的基本结构"></a>C语言的基本结构</h2><p>第一天写到最简单的打印字符型程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>	</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">&quot;This is a C program.\n&quot;</span>)	</span><br><span class="line">  </span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;										</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<p>通过这个简单的例子，可以看到，一个C语言程序的结构有一下特点   </p>
+<p>1.一个程序由一个或多个源程序文件组成  </p>
+<p>2.函数事C程序的主要组成部分  </p>
+<p>3.一个函数包括两个部分  </p>
+<p>4.函数总是从main函数开始执行  </p>
+<p>5.程序中要求计算机完成的操作时由函数中的C语句完成的  </p>
+<p>6.在每个数据声明和语句的最后必须有一个分号  </p>
+<p>7.C语言本省不提供输入输出语句  </p>
+<p>8.程序应当包含注释  </p>
+<h6 id="一个源程序文件可以包括3个部分"><a href="#一个源程序文件可以包括3个部分" class="headerlink" title="一个源程序文件可以包括3个部分"></a>一个源程序文件可以包括3个部分</h6><p>1.预处理指令  </p>
+<p>2.全局声明  </p>
+<p>3.函数定义  </p>
+<h5 id="一个函数包括两个部分"><a href="#一个函数包括两个部分" class="headerlink" title="一个函数包括两个部分"></a>一个函数包括两个部分</h5><p>1.函数首部  </p>
+<p>2.函数体（声明部分/执行部分）  </p>
+<h2 id="程序设计的任务"><a href="#程序设计的任务" class="headerlink" title="程序设计的任务"></a>程序设计的任务</h2><p>1.问题分析：对问题进行分析，找出解决问题的规律  </p>
+<p>2.设计算法：设计出解题的方法和步骤  </p>
+<p>3.编写程序：根据得到的算法，用一种高级语言编写出源程序  </p>
+<p>4.对源程序进行编辑、编译和连接：得到可执行程序  </p>
+<p>5.运行程序，分析结果：运行可执行程序，得到运行结果  </p>
+<h2 id="什么是算法"><a href="#什么是算法" class="headerlink" title="什么是算法"></a>什么是算法</h2><p>算法从广义的角度来说，为解决一个问题而采取的方法和步骤就称为算法</p>
+<h2 id="算法的特性"><a href="#算法的特性" class="headerlink" title="算法的特性"></a>算法的特性</h2><p>1.有穷性  </p>
+<p>2.确定性  </p>
+<p>3.有零个或多个输入  </p>
+<p>4.有一个或多个输出</p>
+<p>5.有效性  </p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>算法的表示分为一下三种种类：  </p>
+<p>1.传统型流程图  </p>
+<p>2.N-S流程图表示算法  </p>
+<p>3.用伪代码表示算法</p>
+<h6 id="三种基本结构"><a href="#三种基本结构" class="headerlink" title="三种基本结构"></a>三种基本结构</h6><p>1.顺序结构  </p>
+<p>2.选择结构  </p>
+<p>3.循环结构  </p>
+<p>循环结构又分为    </p>
+<p>1.当型（while）循环结构  </p>
+<p>2.直到型（until型）循环结构  </p>
+<p>以上三种基本结构又有一下共同特点:    </p>
+<p>1.只有一个入口  </p>
+<p>2.只有一个出口  </p>
+<h2 id="结构化程序设计方法"><a href="#结构化程序设计方法" class="headerlink" title="结构化程序设计方法"></a>结构化程序设计方法</h2><p>1.自顶向下  </p>
+<p>2.逐步细化  </p>
+<p>3.模块化设计  </p>
+<p>4.结构化编码  </p>
+<h2 id="注意：这篇属于后面的篇章"><a href="#注意：这篇属于后面的篇章" class="headerlink" title="注意：这篇属于后面的篇章"></a>注意：这篇属于后面的篇章</h2><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归类似于函数的自身引用，如f(f(x))，就是自己重复调用自己，达到完成相同逻辑切重复的用途，在许多方面都有引用。  </p>
+<p>使用递归要注意一下两点：  </p>
+<p>1.自己得调用自己  </p>
+<p>2.要有结束条件  </p>
+<p>注意：第二点尤其重要，因为如果没有结束条件，就会陷入死循环，从而直到耗尽内存为止。  </p>
+<h2 id="递归用途-汉诺塔"><a href="#递归用途-汉诺塔" class="headerlink" title="递归用途 汉诺塔"></a>递归用途 汉诺塔</h2><p>一、汉诺塔（Tower of Hanoi），又称河内塔，是一个源于印度古老传说的益智玩具。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/20210427074620328.gif" alt="hanoi"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">hanoi</span><span class="params">(<span class="type">int</span> n,<span class="type">char</span> x,<span class="type">char</span> y,<span class="type">char</span> z)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">hanoi</span><span class="params">(<span class="type">int</span> n,<span class="type">char</span> x,<span class="type">char</span> y,<span class="type">char</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%c--&gt;%c\n&quot;</span>,x,z);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		hanoi(n<span class="number">-1</span>,x,z,y);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%c--&gt;%c\n&quot;</span>,x,z);</span><br><span class="line">		hanoi(n<span class="number">-1</span>,y,x,z);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入汉诺塔的层数：&quot;</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	hanoi(n,<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;Z&#x27;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>下面是运行结果：  </p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-07-09%20%E4%B8%8B%E5%8D%8810.26.38.png" alt="运行"></p>
+<p>下面是代码逻辑图hanoi改了下，变成了hanio_step意思和逻辑不改变:  </p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/e51dd0cb01e844a49683da13e756e937.png" alt="逻辑"></p>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><p>一般用的变量互相独立，无内在联系，但有些数据有内在联系，成组出现，例如一个学生的学号，姓名，性别……<br>这种一般无法用数组存储，因为数组一个只能存放同一类型的数据，所以用户可以建立由不同类型数据组成的组合型的数据结构，它称为结构体。  </p>
+<p>声明一个结构体类型的一般形式为：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct 结构体名</span><br><span class="line">&#123;</span><br><span class="line">	成员1;</span><br><span class="line">	成员2；</span><br><span class="line">	……</span><br><span class="line">	成员n;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>例如：图书的标题、作者、价格、日期、</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct Book</span><br><span class="line">&#123;</span><br><span class="line">	char title[128];</span><br><span class="line">	char author[40];</span><br><span class="line">	float price;</span><br><span class="line">	unsigned int date;</span><br><span class="line">	char publisher[40];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义结构体变量时，可以在末尾;前定义变量名，也可以在main函数中定义<br>区别是一个是全局变量，另一个则是局部变量。<br>成员声明具体如下：   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类型名 成员名;</span><br></pre></td></tr></table></figure>
+
+<h2 id="访问结构体"><a href="#访问结构体" class="headerlink" title="访问结构体"></a>访问结构体</h2><p>访问结构体成员需要用到.点运算符具体用法如下：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">结构体名.成员名</span><br></pre></td></tr></table></figure>
+<p>注意：每一个成员是结构体中的一个域。 </p>
+<h2 id="初始化数组"><a href="#初始化数组" class="headerlink" title="初始化数组"></a>初始化数组</h2><p>在末尾的名字后加等号用大括号括起来，用逗号分开，直接输入相应的值，具体如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">struct Book</span><br><span class="line">&#123;       </span><br><span class="line">        char title[128];</span><br><span class="line">        char author[40];</span><br><span class="line">        float price; </span><br><span class="line">        unsigned int date;</span><br><span class="line">        char publisher[40];</span><br><span class="line">&#125;book=&#123;&quot;name&quot;,&quot;author&quot;,49,2022/3/2,&#x27;k&#x27;&#125;;</span><br><span class="line">初始化指定成员，用点运算符，具体语句为：.成员名=值，</span><br><span class="line"></span><br><span class="line">## 结构体嵌套</span><br><span class="line">指在一个结构体里面有另一个结构体。 </span><br><span class="line">例如： </span><br></pre></td></tr></table></figure>
+<p>struct 结构体名<br>{<br>    struct 结构体名 名称；<br>}结构体名={初始化值};</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 访问嵌套结构体成员</span><br><span class="line">用点号运算符，一层一层用点号进入</span><br><span class="line">## 结构体数组</span><br><span class="line">定义方法如下：  </span><br><span class="line">方法1:  </span><br></pre></td></tr></table></figure>
+<p>struct 结构体名称<br>{<br>    结构体成员；<br>}数组名[长度];</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方法2:  </span><br></pre></td></tr></table></figure>
+<p>struct 结构体名称<br>{<br>    结构体成员;<br>};<br>struct 结构体名称 数组名[长度];</p>
+<pre><code>在声明结构体后面改成数组形式
+
+## 初始化结构体数组
+同样用，号隔开录入  
+
+## 结构体指针 
+struct Book * pt;  
+pt=&amp;book；  
+指向结构体的指针
+因为结构体变量名不是指向结构体地址的，所以取值必须使用取值运算符例如：pt=&amp;book；  
+## 通过结构体指针访问结构体成员两种方法：
+1.
+(*结构体指针).成员名
+因为点运算符的优先级高于*所以需要使用小括号括起来
+2.
+结构体指针-&gt;成员名
+
+## 文件处理
+## 程序执行流程
+输入-&gt;处理-&gt;输出。 
+
+## 文本文件与二进制文件
+
+## 打开与关闭
+注意：在完成对一个文件的读写操作之后，你必须将其关闭。  
+打开文件使用函数是 fopen
+fopen 用于打开一个文件用于返回文件指针
+fopen 路径 打开模式
+关闭文件使用的函数是 
+
+</code></pre>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/10/25/2022-10-19_%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">数组实现学生成绩管理系统</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/07/06/2022-07-06_%E5%88%9D%E8%AF%86Linux%20/">初识Linux</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.13.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.13.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
+  };
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

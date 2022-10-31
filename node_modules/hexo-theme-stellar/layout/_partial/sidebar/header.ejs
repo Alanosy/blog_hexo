@@ -1,0 +1,24 @@
+<%
+function layoutDiv() {
+  var el = '';
+  el += '<header class="header';
+  if (where == 'main') {
+    el += ' mobile-only';
+  }
+  el += '">';
+  el += partial('logo');
+  if (where != 'main') {
+    if (page.layout === 'wiki' && page.wiki) {
+      if (page.menu_id !== 'wiki') {
+        el += partial('menu', {where: where});
+      }
+    } else {
+      el += partial('menu', {where: where});
+    }
+  }
+  el += '</header>';
+  return el;
+}
+%>
+
+<%- layoutDiv() %>

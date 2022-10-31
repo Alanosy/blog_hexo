@@ -1,0 +1,17 @@
+recent:
+  layout: recent
+  rss: # /atom.xml # npm i hexo-generator-feed
+  limit: 5 # Count of posts
+
+toc:
+  layout: toc
+  list_number: false # 是否显示序号
+  min_depth: 2
+  max_depth: 5
+  fallback: recent # Use a backup widget when toc does not exist.
+  
+  welcome:
+  layout: markdown
+  title: 欢迎欢迎
+  content:
+    - 这里写的内容会覆盖主题配置文件中的
