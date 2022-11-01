@@ -20,15 +20,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Linux常用命令 - Alan</title>
+  <title>Alan</title>
 
   
-  <meta name="description" content="Linux命令格式命令 [选项] [参数]
-系统管理与维护篇1.pwd命令用于显示当前目录  
-2.cd命令切换当前目录  
-12345~或空格    切换到当前登陆用户的主目录~用户名    切换到指定用户的主目录-切换到之前的工作目录.代表当前目录..代表上一级目录
+  <meta name="description" content="
 
-3.ls命令用于列出...">
+
+嗨！我是Alan👋一个 Java、C、Python 的开发者。
+ 
+
+
+        
+📫-联系我如果你需要联系我，给我发送邮件是最高效的方法。我会每4到5个小时查看一次收件箱，所以，除非你的邮件被系统移动到垃圾邮件中（一般我会每周简单检查一下垃圾邮件箱然后直接清空，所以甚至有可能...">
 
   <!-- feed -->
   
@@ -53,10 +56,8 @@
   
 
 
-
-
   <div class='l_body' id='start'>
-    <aside class='l_left' layout='post'>
+    <aside class='l_left' layout='page'>
     
 
   
@@ -66,75 +67,45 @@
 <div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan</div></a></div>
 
 
-<nav class="menu dis-select"><a class="nav-item" href="/index/">主页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a></nav>
+<nav class="menu dis-select"><a class="nav-item" href="/index/">主页</a><a class="nav-item" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a></nav>
 </header>
 
 
 <div class="widgets">
-
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">Linux常用命令</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BB%B4%E6%8A%A4%E7%AF%87"><span class="toc-text">系统管理与维护篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%AF%87"><span class="toc-text">文件管理篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%E7%BC%A9%E7%AF%87"><span class="toc-text">压缩与解压缩篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BB%B4%E6%8A%A4%E5%91%BD%E4%BB%A4%E7%AF%87"><span class="toc-text">磁盘管理与维护命令篇</span></a></li></ol></div></div></div>
-
-
+<div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">欢迎</span></div><div class="widget-body fs14"><p>欢迎光临小站，这是一个全新的主题，拥有精心设计的样式，保留了 Volantis 的自定义侧边栏，可以写一些公告。<br>本站主题还没开发完毕，旧的文章正在逐步迁移至新主题。</p>
+</div></div>
 
 
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%97%A8%EF%BC%81%E6%88%91%E6%98%AFAlan%F0%9F%91%8B"><span class="toc-text">嗨！我是Alan👋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%AB-%E8%81%94%E7%B3%BB%E6%88%91"><span class="toc-text">📫-联系我</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB-%E6%88%91%E7%9A%84-GitHub"><span class="toc-text">👨🏻‍💻-我的-GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%97%93-%E8%BF%91%E6%9C%9F%E6%97%A5%E7%A8%8B"><span class="toc-text">🗓-近期日程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A4%A9-%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD"><span class="toc-text">🤩-兴趣爱好</span></a></li></ol></div></div></div>
 </div>
 
 
     </aside>
     <div class='l_main'>
       
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan</div></a></div>
+</header>
+
+
 
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-07-06T12:22:22.000Z">2022-07-06</time></div></div>
 
-<article class='content md post'>
-<h1 class="article-title"><span>Linux常用命令</span></h1>
-<h2 id="Linux命令格式"><a href="#Linux命令格式" class="headerlink" title="Linux命令格式"></a>Linux命令格式</h2><p>命令 [选项] [参数]</p>
-<h2 id="系统管理与维护篇"><a href="#系统管理与维护篇" class="headerlink" title="系统管理与维护篇"></a>系统管理与维护篇</h2><p>1.pwd命令<br>用于显示当前目录  </p>
-<p>2.cd命令<br>切换当前目录  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~或空格    切换到当前登陆用户的主目录</span><br><span class="line">~用户名    切换到指定用户的主目录</span><br><span class="line">-切换到之前的工作目录</span><br><span class="line">.代表当前目录</span><br><span class="line">..代表上一级目录</span><br></pre></td></tr></table></figure>
-
-<p>3.ls命令<br>用于列出当前目录或指定目录中的内容  </p>
-<p>4.date和cal命令<br>用于显示当前系统时间和日期  </p>
-<p>5.su和passwd命令<br>su用户切换用户<br>passwd用于修改用户密码  </p>
-<p>6.man命令<br>用于显示命令帮助手册  </p>
-<p>7.who命令和w命令<br>who用于查看当前系统的用户有哪些<br>w命令与who类似，但是主要用于显示登陆到系统的用户情况  </p>
-<p>8.uname命令<br>用于显示操作系统信息  </p>
-<p>9.last命令<br>用于查看当前和过去登陆系统用户的相关信息  </p>
-<p>10.uptime和free命令<br>uptime用于显示系统已经运行的时间、当前用户登陆的用户数量和系统评价负载。<br>free用于显示系统内存的状态，包括系统的物理内存、虚拟内存（swap）和系统缓存的使用情况  </p>
-<p>11.dmesg命令<br>用于显示开机信息，常用语查看系统的硬件信息。  </p>
-<p>12.ps和top命令<br>ps用于监控进程<br>top用于动态地察看进程的运行状态。  </p>
-<h2 id="文件管理篇"><a href="#文件管理篇" class="headerlink" title="文件管理篇"></a>文件管理篇</h2><p>1.mkdir和touch命令<br>分别用于新建文件夹和新建文件  </p>
-<p>2.rm和rmdir命令<br>rm用于永久删除文件或目录<br>rmdir用户删除空目录  </p>
-<p>3.cat命令<br>用来查看文件中的内容  </p>
-<p>4.grep命令<br>能够在一个或多个文件中搜索某一特定的字符模式，也称为正则表达式  </p>
-<p>5.more命令<br>可以使文件中的内容分页显示  </p>
-<p>6.file命令<br>可以通过查看文件的头部信息来识别文件的类型，同时还可以用来辨别文件的编码格式  </p>
-<p>7.cp命令<br>用来复制文件或目录  </p>
-<p>8.mv命令<br>用于在不同目录之间移动文件或目录  </p>
-<p>9.find命令<br>用来查找文件和目录  </p>
-<h2 id="压缩与解压缩篇"><a href="#压缩与解压缩篇" class="headerlink" title="压缩与解压缩篇"></a>压缩与解压缩篇</h2><p>1.zip/unzip  </p>
-<p>2.gzip/gunzip  </p>
-<p>3.bzip2/bunzip2  </p>
-<p>4.tar  </p>
-<h2 id="磁盘管理与维护命令篇"><a href="#磁盘管理与维护命令篇" class="headerlink" title="磁盘管理与维护命令篇"></a>磁盘管理与维护命令篇</h2><p>1.df命令<br>用于显示Linux系统中各文件系统的硬盘使用情况  </p>
-<p>2.du命令<br>用于显示某个特定目录的磁盘使用情况，同时还可以片段系统上某个目录下是否有超大文件。  </p>
-<p>3.fsck命令<br>用于检查文件系统并尝试修复出现的错误  </p>
+<article class="content md page"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/hello-alan.png" width = "296.23" height = "96" />
 
 
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
-</div></section></div>
+<h2 id="嗨！我是Alan👋"><a href="#嗨！我是Alan👋" class="headerlink" title="嗨！我是Alan👋"></a>嗨！我是Alan👋</h2><p>一个 Java、C、Python 的开发者。</p>
+ <img class="lazy entered loaded lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white">
+<img class="lazy entered loaded lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
 
-</article>
-
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/07/06/2022-07-06_%E5%88%9D%E8%AF%86Linux%20/">初识Linux</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/07/03/2022-07-03_%E7%AE%80%E4%BB%8B/">简介</a></div></section></div>
-
-
-
-
-
+<p> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/CLion-000000?style=for-the-badge&logo=clion&logoColor=white"><br> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.shields.io/badge/Safari-FF1B2D?style=for-the-badge&logo=Safari&logoColor=white"></p>
+<h2 id="📫-联系我"><a href="#📫-联系我" class="headerlink" title="📫-联系我"></a>📫-联系我</h2><p>如果你需要联系我，给我发送邮件是最高效的方法。我会每4到5个小时查看一次收件箱，所以，除非你的邮件被系统移动到垃圾邮件中（一般我会每周简单检查一下垃圾邮件箱然后直接清空，所以甚至有可能我根本不会看到你的邮件），你将会可以很快收到我的回复。<br><a target="_blank" rel="noopener" href="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white">https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white</a></p>
+<h2 id="👨🏻‍💻-我的-GitHub"><a href="#👨🏻‍💻-我的-GitHub" class="headerlink" title="👨🏻‍💻-我的-GitHub"></a>👨🏻‍💻-我的-GitHub</h2><h2 id="🗓-近期日程"><a href="#🗓-近期日程" class="headerlink" title="🗓-近期日程"></a>🗓-近期日程</h2><h2 id="🤩-兴趣爱好"><a href="#🤩-兴趣爱好" class="headerlink" title="🤩-兴趣爱好"></a>🤩-兴趣爱好</h2></article>
 
 
 
