@@ -31,7 +31,7 @@
 <meta property="og:description" content="各章节重点一、数据类型1231、int   整型  2、float 浮点型（小数）  3、char  字符    二、输入输出121.printf();输出函数    2.scanf();输入函数      三、选择结构123456789101112if(条件表达式1)&amp;#123;	&#x2F;&#x2F;条件1成立执行这里的代码；&amp;#125;else (条件2)&amp;#123;	&#x2F;&#x2F;条件2成立执行这里的代码；&amp;#125">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-28T03:44:23.000Z">
-<meta property="article:modified_time" content="2022-10-28T10:50:44.784Z">
+<meta property="article:modified_time" content="2022-10-31T23:39:41.178Z">
 <meta property="article:author" content="Alan">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
@@ -74,13 +74,13 @@
 <div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan_blog</div></a></div>
 
 
-<nav class="menu dis-select"><a class="nav-item" href="/index">主页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a></nav>
+<nav class="menu dis-select"><a class="nav-item" href="/inde/">主页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a></nav>
 </header>
 
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言笔记简化版</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%AB%A0%E8%8A%82%E9%87%8D%E7%82%B9"><span class="toc-text">各章节重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">一、数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text">二、输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-text">三、选择结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-text">四、循环结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%80%80%E5%87%BA%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">五、退出循环语句</span></a></li></ol></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言笔记简化版</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%AB%A0%E8%8A%82%E9%87%8D%E7%82%B9"><span class="toc-text">各章节重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">一、数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text">二、输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-text">三、选择结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-text">四、循环结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%80%80%E5%87%BA%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">五、退出循环语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E7%BB%84"><span class="toc-text">六、数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">七、字符串处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-text">八、函数定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%8C%87%E9%92%88"><span class="toc-text">九、指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="toc-text">十、指针数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-text">十一、动态内存分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">十二、结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">十三、共用体类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-text">十四、枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typedef%E5%A3%B0%E6%98%8E%E6%96%B0%E7%B1%BB%E5%9E%8B%E5%90%8D"><span class="toc-text">typedef声明新类型名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text">十五、文件的输入输出</span></a></li></ol></li></ol></div></div></div>
 
 
 
@@ -114,50 +114,56 @@
 <p>3.do while循环</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">	//每次循环要执行的代码放这;</span><br><span class="line">&#125;while(条件表达式1);</span><br></pre></td></tr></table></figure>
 
-<h3 id="五、退出循环语句"><a href="#五、退出循环语句" class="headerlink" title="五、退出循环语句"></a>五、退出循环语句</h3><p>退出循环分为break; 与 continue    </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">break;</span><br><span class="line">```    </span><br><span class="line">break;语句用于退出整个循环  </span><br></pre></td></tr></table></figure>
-<p>continue;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">continue用于退出本次循环而不退出整个循环  </span><br><span class="line"></span><br><span class="line">### 六、数组</span><br><span class="line">1. 一维数组  </span><br><span class="line">1.1 定义一维数组  </span><br></pre></td></tr></table></figure>
-<p>数据类型 数组名[填数字或表达式];</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.2	数组引用  </span><br></pre></td></tr></table></figure>
-<p>数组名[下标]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2. 二维数组</span><br><span class="line">2.1 二维数组定义</span><br></pre></td></tr></table></figure>
-<p>类型 数组名[多少行][多少.列];</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.2 二维数组的引用  </span><br></pre></td></tr></table></figure>
-<p>数据类型 数组名[行.下标][列.下标]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 七、字符串处理函数</span><br></pre></td></tr></table></figure>
-<p>1.puts(字符数组)<br>输出字符串函数      </p>
-<p>2.gets(字符数组)<br>输入字符串的函数  </p>
-<p>3.strcat(字符数组1,字符数组2)<br>字符串连接函数   </p>
-<p>4.strcpy(字符数组1,字符数组2)<br>字符串复制函数  </p>
-<p>5.strcmp(字符串1,字符串2)<br>字符串比较函数  </p>
-<p>6.strlen(字符数组)<br>测字符串长度的函数  </p>
-<p>7.strlwr(字符串)<br>转换为小写的函数  </p>
-<p>8.strupr(字符串)<br>转换为大写的函数  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 八、函数定义</span><br><span class="line">1.定义无参函数</span><br></pre></td></tr></table></figure>
-<p>类型名 函数名()<br>{<br>    //函数体;<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.定义有参函数  </span><br></pre></td></tr></table></figure>
-<p>类型名 函数名(形式参数)<br>{<br>    //函数体;<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">### 九、指针</span><br><span class="line">1.定义指针变量</span><br></pre></td></tr></table></figure>
-<p>类型名 *指针变量名;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### 十、指针数组</span><br><span class="line">数组元素的指针就是数组元素的地址  </span><br><span class="line">通过指针引用数组的方法如下：  </span><br></pre></td></tr></table></figure>
-<p>*(数组名+数字)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 十一、动态内存分配</span><br></pre></td></tr></table></figure>
-<p>1、malloc()函数开辟动态存储区<br>2、calloc()函数开辟动态存储区<br>3、realloc()函数重新分配动态存储区<br>4、free()函数释放动态存储区</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 十二、结构体</span><br><span class="line">1.定义结构体  </span><br></pre></td></tr></table></figure>
-<p>struct 结构体名<br>{<br>    成员表列;<br>    //类型名 成员名;<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### 十三、共用体类型</span><br></pre></td></tr></table></figure>
-<p>union 共用体名<br>{<br>    成员表列<br>}变量表列；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 十四、枚举类型</span><br><span class="line">1.枚举类型定义   </span><br></pre></td></tr></table></figure>
-<p>enum[枚举名]{枚举元素列表};</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### typedef声明新类型名</span><br></pre></td></tr></table></figure>
-<p>typedef int Integer;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比如这句的意思是用Integer为类型名，作用与int相同  </span><br><span class="line">### 十五、文件的输入输出</span><br><span class="line">1.用fopen函数打开数据文件  </span><br></pre></td></tr></table></figure>
-<p>fopen(文件名,使用文件方式);</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.用fclose函数关闭数据文件  </span><br></pre></td></tr></table></figure>
-<p>fclose(文件指针);</p>
-<pre><code>
-</code></pre>
+<h3 id="五、退出循环语句"><a href="#五、退出循环语句" class="headerlink" title="五、退出循环语句"></a>五、退出循环语句</h3><p>退出循环分为break; 与 continue  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">break;</span><br></pre></td></tr></table></figure>
+
+<p>break;语句用于退出整个循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">continue;</span><br></pre></td></tr></table></figure>
+
+<p>continue用于退出本次循环而不退出整个循环  </p>
+<h3 id="六、数组"><a href="#六、数组" class="headerlink" title="六、数组"></a>六、数组</h3><ol>
+<li>一维数组  </li>
+<li>1 定义一维数组 </li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型 数组名[填数字或表达式];</span><br></pre></td></tr></table></figure>
+
+<p>1.2    数组引用  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名[下标]</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>二维数组</li>
+<li>1 二维数组定义</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类型 数组名[多少行][多少.列];</span><br></pre></td></tr></table></figure>
+
+<p>2.2 二维数组的引用  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型 数组名[行.下标][列.下标]</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、字符串处理函数"><a href="#七、字符串处理函数" class="headerlink" title="七、字符串处理函数"></a>七、字符串处理函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1.puts(字符数组)   </span><br><span class="line">输出字符串函数      </span><br><span class="line"></span><br><span class="line">2.gets(字符数组)   </span><br><span class="line">输入字符串的函数  </span><br><span class="line"></span><br><span class="line">3.strcat(字符数组1,字符数组2)          </span><br><span class="line">字符串连接函数   </span><br><span class="line"></span><br><span class="line">4.strcpy(字符数组1,字符数组2)</span><br><span class="line">字符串复制函数  </span><br><span class="line"></span><br><span class="line">5.strcmp(字符串1,字符串2)     </span><br><span class="line">字符串比较函数  </span><br><span class="line"></span><br><span class="line">6.strlen(字符数组)   </span><br><span class="line">测字符串长度的函数  </span><br><span class="line"></span><br><span class="line">7.strlwr(字符串)  </span><br><span class="line">转换为小写的函数  </span><br><span class="line"></span><br><span class="line">8.strupr(字符串)  </span><br><span class="line">转换为大写的函数  </span><br></pre></td></tr></table></figure>
+
+<h3 id="八、函数定义"><a href="#八、函数定义" class="headerlink" title="八、函数定义"></a>八、函数定义</h3><p>1.定义无参函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类型名 函数名()</span><br><span class="line">&#123;</span><br><span class="line">	//函数体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.定义有参函数  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类型名 函数名(形式参数)</span><br><span class="line">&#123;</span><br><span class="line">	//函数体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="九、指针"><a href="#九、指针" class="headerlink" title="九、指针"></a>九、指针</h3><p>1.定义指针变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类型名 *指针变量名;</span><br></pre></td></tr></table></figure>
+<h3 id="十、指针数组"><a href="#十、指针数组" class="headerlink" title="十、指针数组"></a>十、指针数组</h3><p>数组元素的指针就是数组元素的地址<br>通过指针引用数组的方法如下：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*(数组名+数字)</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、动态内存分配"><a href="#十一、动态内存分配" class="headerlink" title="十一、动态内存分配"></a>十一、动态内存分配</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、malloc()函数开辟动态存储区</span><br><span class="line">2、calloc()函数开辟动态存储区</span><br><span class="line">3、realloc()函数重新分配动态存储区</span><br><span class="line">4、free()函数释放动态存储区</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、结构体"><a href="#十二、结构体" class="headerlink" title="十二、结构体"></a>十二、结构体</h3><p>1.定义结构体  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct 结构体名</span><br><span class="line">&#123;</span><br><span class="line">    成员表列;</span><br><span class="line">    //类型名 成员名; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="十三、共用体类型"><a href="#十三、共用体类型" class="headerlink" title="十三、共用体类型"></a>十三、共用体类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">union 共用体名</span><br><span class="line">&#123;</span><br><span class="line">	成员表列</span><br><span class="line">&#125;变量表列；</span><br></pre></td></tr></table></figure>
+
+<h3 id="十四、枚举类型"><a href="#十四、枚举类型" class="headerlink" title="十四、枚举类型"></a>十四、枚举类型</h3><p>1.枚举类型定义   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum[枚举名]&#123;枚举元素列表&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="typedef声明新类型名"><a href="#typedef声明新类型名" class="headerlink" title="typedef声明新类型名"></a>typedef声明新类型名</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typedef int Integer;</span><br></pre></td></tr></table></figure>
+<p>比如这句的意思是用Integer为类型名，作用与int相同  </p>
+<h3 id="十五、文件的输入输出"><a href="#十五、文件的输入输出" class="headerlink" title="十五、文件的输入输出"></a>十五、文件的输入输出</h3><p>1.用fopen函数打开数据文件  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fopen(文件名,使用文件方式);</span><br></pre></td></tr></table></figure>
+<p>2.用fclose函数关闭数据文件  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fclose(文件指针);</span><br></pre></td></tr></table></figure>
 
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
@@ -165,7 +171,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/10/31/hello-world/">Hello World</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/10/25/2022-10-19_%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">数组实现学生成绩管理系统</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/11/01/2022_11_1_%E5%A3%B0%E6%98%8E/">Stellar</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/10/25/2022-10-19_%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">数组实现学生成绩管理系统</a></div></section></div>
 
 
 
