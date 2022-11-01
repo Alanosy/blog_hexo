@@ -1,6 +1,6 @@
 sidebar:
   menu:
-    index: '[主页](/index/)'
+    index: '[文章](/index/)'
     post: '[btn.blog](/)'
     wiki: '[btn.wiki](/wiki/)'
     notes: '[笔记](/notes/)'
