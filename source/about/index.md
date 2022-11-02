@@ -15,9 +15,7 @@ title:
 
 
  <img align=left src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white"><img align=left src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"><img align=left src="https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white">
-
  <img align=left src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"><img align=left src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"><img align=left src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"><img align=left src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
-
  <img align=left src="https://img.shields.io/badge/CLion-000000?style=for-the-badge&logo=clion&logoColor=white"><img align=left src="https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white"><img align=left src="https://img.shields.io/badge/Safari-FF1B2D?style=for-the-badge&logo=Safari&logoColor=white">
 
 
@@ -55,10 +53,25 @@ title:
 
 {% timeline %}
 <!-- node 2022 年 10 月 29 日 -->
-链表
-
+链
 <!-- node 2022 年 11 月 1 日 -->
 二叉树
+<!-- node 2022 年 11 月 2 日 -11月7日 -->
+确定发展方向
+<!-- node 2022 年 11 月 8 日-1 月 8 日 -->
+每个人完成一个软件著作权
+<!-- node 2023 年 1 月 9 日-3月9日 -->
+第二个软件著作权
+<!-- node 2023 年 3 月 10 日-9月1日 -->
+两个小型企业项目
+<!-- node 2023 年 9 月 2 日-12月2日 -->
+一个中型企业项目1个实用新型专利
+<!-- node 2023 年 12 月 3 日-2024年6月 -->
+提交1个发明专利1篇论文
+<!-- node 2024 年 6 月-12月-->
+备考研究生考试
+<!-- node 2025 年 1 月-5月  -->
+研究生复试
 {% endtimeline %}
 
 ## 🤩-兴趣爱好
