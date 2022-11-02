@@ -1,8 +1,7 @@
 ---
-title: 数组实现学生成绩管理系统
-date: 2022-10-25 19:36:11
-tag: [C]
-categories: [设计开发, C语言]
+layout: wiki  # 使用wiki布局模板
+wiki: 学生成绩管理系统 # 这是项目名
+title: 数组与链表学生成绩管理系统
 ---
 ## 引言
 因为学生管理系统类似数据库，需要实现增删改查，来管理其数据，所以该管理系统也应该实现这四个功能，这里使用数组实现，且具体实现如下。  
@@ -545,3 +544,346 @@ int main() {
 }
 ```
 所有内容都是在main函数中使用的，所以要在main中导入之前的函数
+
+## 源代码
+具体源代码存放在gitee仓库地址如下  
+
+{% copy https://gitee.com/thebyte/work.git %}
+
+## 目录
+目录就不用多说，用以前的打印就好了  
+```
+void menu()
+{
+    printf("===============\n");
+    printf("1、学生成绩录入\n");
+    printf("2、学生成绩删除\n");
+    printf("3、学生成绩修改\n");
+    printf("4、学生成绩查询\n");
+    printf("5、学生成绩打印\n");
+    printf("6、释 放 空 间\n");
+    printf("0、退       出\n");
+    printf("===============\n");
+}
+```
+## 链表录入
+先要定义结构体  
+```
+typedef struct student
+{
+    //信息域
+    int num;
+    char name[10];
+    char sex;
+    float score;
+    //指针域
+    struct student *next;
+}stu;
+```
+然后需要定义头指针  
+```
+stu *head=NULL;
+```
+然后开始判断链表是否为空  
+```
+void add()
+{
+    //定义选择变量
+    int choose;
+    //定义尾指针
+    stu *last=NULL;
+    while (1)
+    {
+        //当链表为空时，head当next成员指向last，last为新节点，用来存放数据，last当next成员指向空
+        if(head==NULL)
+        {
+            //给第一个节点分配空间，当链表只有一个节点时，这个节点就是这个链表当last
+            last=(stu *)malloc(sizeof (stu));
+            last->next=NULL;
+            head=(stu *)malloc(sizeof (stu));
+            head->next=last;
+            //录入信息到信息域
+            printf("请输入学号：");
+            scanf("%d",&last->num);
+            printf("请输入姓名：");
+            scanf("%s",last->name);
+            getchar();
+            printf("请输入性别（男:M,女:F)：");
+            scanf("%c",&last->sex);
+            printf("请输入成绩：");
+            scanf("%f",&last->score);
+        }
+        //当链表不为空时，找到最后一个节点，last的next成员分配空间，然后最新的将last这个指针指向刚刚建立的空间为最新的last，然后最新的last的next成员指向null
+        else if(head!=NULL)
+        {
+            //查找链表的最后一个节点
+            last=head->next;
+            while(last->next!=NULL)
+            {
+                last=last->next;
+            }
+            //分配新节点空间
+            last->next=(stu *)malloc(sizeof (stu));
+            //标注新的last
+            last=last->next;
+            last->next=NULL;
+            //录入信息到信息域
+            printf("请输入学号：");
+            scanf("%d",&last->num);
+            printf("请输入姓名：");
+            scanf("%s",last->name);
+            getchar();
+            printf("请输入性别（男:M,女:F)：");
+            scanf("%c",&last->sex);
+            printf("请输入成绩：");
+            scanf("%f",&last->score);
+        }
+        getchar();
+        printf("还有继续么(y/n)：");
+        char c = getchar();
+        if (c == 'y' || c == 'Y')
+        {
+            //如果输入为y则执行空语句
+            ;
+        }
+        else if (c == 'n' || c == 'N')
+        {
+            break;
+        }
+        else
+        {
+            printf("输入错误，即将退出删除系统!\n");
+            break;
+
+        }
+    }
+}
+```
+其中也需要定义last尾指针，这个指针在录入时代表的意思是存放最后一个节点的地址  
+其中malloc()内存分配函数需要强行改变类型切需要引用头文件  
+```
+#include <stdlib.h>
+```
+
+## 删除成绩
+删除后面的都依照数组实现的学生管理系统逻辑推理写出，就不过多解释，有不懂的可以在联系我
+```
+void delete()
+{
+    while (1)
+    {
+        int num;
+        if(head==NULL)
+        {
+            printf("学生成绩表无信息\n");
+            break;
+        }
+        printf("请输入要删除成绩的学号：");
+        scanf("%d",&num);
+        stu *temp;
+        temp=head;
+        while(temp->next!=NULL)
+        {
+            if(num==temp->next->num)
+            {
+                stu *del=temp->next;
+                temp->next=temp->next->next;
+                free(del);
+                break;
+            }
+            temp=temp->next;
+        }
+        if(temp==NULL)
+        {
+            printf("查无此人");
+        }
+
+        getchar();
+        printf("还有继续么(y/n)：");
+        char c = getchar();
+        if (c == 'y' || c == 'Y')
+        {
+            //如果输入为y则执行空语句
+            ;
+        }
+        else if (c == 'n' || c == 'N')
+        {
+            break;
+        }
+        else
+        {
+            printf("输入错误，即将退出删除系统!\n");
+            break;
+
+        }
+    }
+}
+```
+## 修改成绩
+```
+//修改成绩
+void alter()
+{
+    while (1)
+    {
+        int num;
+        if(head==NULL)
+        {
+            printf("学生成绩表无信息\n");
+            break;
+        }
+        printf("请输入要修改成绩的学号：");
+        scanf("%d",&num);
+        stu *temp;
+        temp=head->next;
+        while(temp!=NULL)
+        {
+            if(num==temp->num)
+            {
+                printf("请输入要修改的成绩：");
+                scanf("%f",&temp->score);
+                break;
+            }
+            temp=temp->next;
+        }
+        if(temp==NULL)
+        {
+            printf("查无此人");
+        }
+
+        getchar();
+        printf("还有继续么(y/n)：");
+        char c = getchar();
+        if (c == 'y' || c == 'Y')
+        {
+            //如果输入为y则执行空语句
+            ;
+        }
+        else if (c == 'n' || c == 'N')
+        {
+            break;
+        }
+        else
+        {
+            printf("输入错误，即将退出删除系统!\n");
+            break;
+
+        }
+    }
+}
+```
+## 打印链表
+```
+//链表当输出
+void print()
+{
+    stu *temp;
+    temp=head->next;
+    printf("学号\t\t\t\t姓名\t\t性别\t\t成绩\n");
+    while(temp!=NULL)
+    {
+        printf("%-16d%-8s%-8c%-8.2f\n",temp->num,temp->name,temp->sex,temp->score);
+        temp=temp->next;
+    }
+    return;
+
+}
+```
+## 释放内存空间
+```
+//释放空间
+void release()
+{
+    stu *temp_2;
+    while(head!=NULL)
+    {
+        temp_2=head;
+        head=head->next;
+        free(temp_2);
+    }
+
+}
+```
+## 成绩查询
+```
+//查找成绩
+void find()
+{
+    while (1)
+    {
+        int num;
+        if(head==NULL)
+        {
+            printf("学生成绩表无信息\n");
+            break;
+        }
+        printf("请输入要查找的学号：");
+        scanf("%d",&num);
+        stu *temp;
+        temp=head->next;
+        while(temp!=NULL)
+        {
+            if(num==temp->num)
+            {
+                printf("你要查找的学生信息如下：\n");
+                printf("学号\t\t\t\t姓名\t\t性别\t\t成绩\n");
+                printf("%-16d%-8s%-8c%-8.2f\n",temp->num,temp->name,temp->sex,temp->score);
+                break;
+            }
+            temp=temp->next;
+        }
+        if(temp==NULL)
+        {
+            printf("查无此人");
+        }
+
+        getchar();
+        printf("还有继续么(y/n)：");
+        char c = getchar();
+        if (c == 'y' || c == 'Y')
+        {
+            //如果输入为y则执行空语句
+            ;
+        }
+        else if (c == 'n' || c == 'N')
+        {
+            break;
+        }
+        else
+        {
+            printf("输入错误，即将退出删除系统!\n");
+            break;
+
+        }
+    }
+}
+```
+## 功能选择与程序入口
+```
+//选择功能
+int select()
+{
+    while (1)
+    {
+        int i;
+        menu();
+        printf("请输入要选择的功能：");
+        scanf("%d",&i);
+        switch (i)
+        {
+            case 1: add();break;
+            case 2: delete();break;
+            case 3: alter();break;
+            case 4: find();break;
+            case 5: print();break;
+            case 6: release();break;
+            case 0: return 0;
+            default: printf("输入错误，请重新输入");break;
+        }
+    }
+}
+int main()
+{
+    select();
+}
+```

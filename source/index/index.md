@@ -27,20 +27,38 @@ date: 2022-11-01 00:03:12
 
 ## 📫-联系我
 如果你需要联系我，给我发送邮件是最高效的方法。我会每4到5个小时查看一次收件箱，所以，除非你的邮件被系统移动到垃圾邮件中（一般我会每周简单检查一下垃圾邮件箱然后直接清空，所以甚至有可能我根本不会看到你的邮件），你将会可以很快收到我的回复。
-email:alanos@aliyun.com
+<a href="mailto:alanos@aliyun.com">
+<img align=left src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+</a>
 
+## ℹ️ 本页面使用以下技术制作
+
+{% ghcard Envoy-VC/awesome-badges theme:dark %}
+{% ghcard Ileriayo/markdown-badges theme:dark %}
+{% ghcard anuraghazra/github-readme-stats theme:dark %}
 
 ## 👨🏻‍💻-我的-GitHub
 
+<a target="blank" rel="noopener" href="https://github.com/Alanosy">
  <img align=left src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+</a>
 
+------
+
+{% ghcard alanosy %}
 
 
 ## 🗓-近期日程
 
 开源项目无任何盈利目的，所有项目均会在闲暇之余维护，开源项目如有任何问题建议提交 Issue，紧急问题（包括但不限于安全缺陷等问题）请发送私人邮件
 
-近期本人在学链表、二叉树中
+{% timeline %}
+<!-- node 2022 年 10 月 29 日 -->
+链表
+
+<!-- node 2022 年 11 月 1 日 -->
+二叉树
+{% endtimeline %}
 
 ## 🤩-兴趣爱好
 
@@ -52,4 +70,3 @@ email:alanos@aliyun.com
 | 听音乐   | apple music | ★★★★     | 2018—2022 |
 | 跑步     | 线下        | ★★★★★    | 2018—2022 |
 | 动漫     | Biilibili   | ★★★★     | 2018—2022 |
-

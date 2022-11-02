@@ -1,6 +1,7 @@
 ---
 title: Hexo-Linux搭建博客
 date: 2022-09-15 21:07:32
+categories: [设计开发, 网站搭建]
 ---
 
 ## Hexo简介
