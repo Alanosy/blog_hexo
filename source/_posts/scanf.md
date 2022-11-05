@@ -71,7 +71,7 @@ int main() {
 }
 ```
 
-指针学习链接
+指针学习链接.
 {% copy https://www.bilibili.com/video/BV17s411N78s?p=21&vd_source=d0bb45cb38d00ca4305644ec8d919620 %}
 指针加数组学习链接，为什么数组可以不用加&
 {% copy  https://www.bilibili.com/video/BV17s411N78s?p=23&vd_source=d0bb45cb38d00ca4305644ec8d919620 %}
