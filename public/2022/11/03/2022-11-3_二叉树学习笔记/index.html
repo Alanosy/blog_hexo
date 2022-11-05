@@ -20,18 +20,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Alan</title>
+  <title>二叉树学习笔记 - Alan</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Alan">
-<meta property="og:url" content="https://www.alan.org.cn/post/index.html">
+    <meta name="description" content="概述树 是一种经常用到的数据结构，用来模拟具有树状结构性质的数据集合。二叉树是一种更为典型的树状结构。如它名字所描述的那样，二叉树是每个节点最多有两个子树的树结构，通常子树被称作“左子树”和“右子树”。 二叉树的遍历方式遍历方式分为三种，分别是前序、中序、后序。前中后指的是根节点遍历的顺序，例如：前序：根-&gt;左-&gt;右中序：左-&gt;根-&gt;右后续：左-&gt;右-&gt;根 例如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树学习笔记">
+<meta property="og:url" content="https://www.alan.org.cn/2022/11/03/2022-11-3_%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Alan">
+<meta property="og:description" content="概述树 是一种经常用到的数据结构，用来模拟具有树状结构性质的数据集合。二叉树是一种更为典型的树状结构。如它名字所描述的那样，二叉树是每个节点最多有两个子树的树结构，通常子树被称作“左子树”和“右子树”。 二叉树的遍历方式遍历方式分为三种，分别是前序、中序、后序。前中后指的是根节点遍历的顺序，例如：前序：根-&gt;左-&gt;右中序：左-&gt;根-&gt;右后续：左-&gt;右-&gt;根 例如">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-31T16:01:16.000Z">
-<meta property="article:modified_time" content="2022-10-31T16:17:48.319Z">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/twotree/Slide01.png">
+<meta property="article:published_time" content="2022-11-03T13:33:23.000Z">
+<meta property="article:modified_time" content="2022-11-05T00:22:14.759Z">
 <meta property="article:author" content="Alan">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/twotree/Slide01.png">
   
   
 
@@ -58,8 +63,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout='page'>
+    <aside class='l_left' layout='post'>
     
 
   
@@ -69,36 +76,47 @@
 <div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan</div></a></div>
 
 
-<nav class="menu dis-select"><a class="nav-item" href="/index/">首页</a><a class="nav-item" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a></nav>
+<nav class="menu dis-select"><a class="nav-item" href="/index/">首页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a></nav>
 </header>
 
 
 <div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">欢迎</span></div><div class="widget-body fs14"><p>欢迎光临小站，采用Hexo开源主题Stellar，此刚使用不久，有些功能还在研究中，敬请期待……</p>
-</div></div>
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">二叉树学习笔记</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="toc-text">二叉树的遍历方式</span></a></li></ol></div></div></div>
 
 
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2022/11/03/2022-11-3_%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="title">二叉树学习笔记</span></a><a class="item title" href="/2022/11/04/2022-11-4_%E5%85%A5%E5%85%9A%E7%94%B3%E8%AF%B7%E4%B9%A6/"><span class="title">关于我写入党申请书的挫折</span></a><a class="item title" href="/2022/11/02/2022-11-2_%E5%B7%A5%E4%BD%9C%E5%AE%A4/"><span class="title">进入工作室</span></a><a class="item title" href="/2022/10/25/2022-10-19_%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"><span class="title">数组实现学生成绩管理系统</span></a><a class="item title" href="/2022/11/01/2022-11-1_%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"><span class="title">链表实现学生成绩管理系统</span></a></div></div>
 
 </div>
 
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan</div></a></div>
-</header>
-
-
 
       
 
-<article class="content md page"></article>
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%BE%E8%AE%A1%E5%BC%80%E5%8F%91/">设计开发</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AE%BE%E8%AE%A1%E5%BC%80%E5%8F%91/C%E8%AF%AD%E8%A8%80/">C语言</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-11-03T13:33:23.000Z">2022-11-03</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>二叉树学习笔记</span></h1>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>树 是一种经常用到的数据结构，用来模拟具有树状结构性质的数据集合。<br>二叉树是一种更为典型的树状结构。如它名字所描述的那样，二叉树是每个节点最多有两个子树的树结构，通常子树被称作“左子树”和“右子树”。</p>
+<h2 id="二叉树的遍历方式"><a href="#二叉树的遍历方式" class="headerlink" title="二叉树的遍历方式"></a>二叉树的遍历方式</h2><p>遍历方式分为三种，分别是前序、中序、后序。<br>前中后指的是根节点遍历的顺序，例如：<br>前序：根-&gt;左-&gt;右<br>中序：左-&gt;根-&gt;右<br>后续：左-&gt;右-&gt;根</p>
+<p>例如：<br>前序<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/twotree/Slide01.png"><br>比如这个二叉树的前序遍历顺序就是：F,B,A,D,C,E,G,I,H<br>中序遍历的顺序是：A,B,C,D,E,F,G,H,I<br>后序遍历的顺序是：A,C,E,D,B,H,I,G,F</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/11/04/2022-11-4_%E5%85%A5%E5%85%9A%E7%94%B3%E8%AF%B7%E4%B9%A6/">关于我写入党申请书的挫折</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/11/02/2022-11-2_%E5%B7%A5%E4%BD%9C%E5%AE%A4/">进入工作室</a></div></section></div>
+
+
+
+
+
 
   <div class='related-wrap md reveal' id="comments">
     <div class='cmt-title cap theme'>
