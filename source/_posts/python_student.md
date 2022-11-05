@@ -15,7 +15,6 @@ def menu():
     print("3、学生成绩修改")
     print("4、学生成绩查询")
     print("5、学生成绩打印")
-    print("6、排       序")
     print("0、退       出")
     print("===============")
 def add():
