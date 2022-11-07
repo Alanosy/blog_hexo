@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.13.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>关于scanf函数地址列表的理解 - Alan</title>
+
+  
+    <meta name="description" content="引言计算机所处理的数据存放在内存内存就像个仓库，里面放着各种数据，我们定义的变量也在其中在计算机中，我们想找到某一变量，需要依靠地址查找就行去朋友家玩一样，先得知道朋友家的地址在哪，才能去到朋友家里 C语言变量1int a; 这里我们定义了一个变量，也可以说我们申请了一块内存空间用来存放数据，a是这块空间的别名 Scanf()1scanf(格式控制,地址表列); 注意：scanf函数中的格式控制后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于scanf函数地址列表的理解">
+<meta property="og:url" content="https://www.alan.org.cn/2022/11/05/scanf/index.html">
+<meta property="og:site_name" content="Alan">
+<meta property="og:description" content="引言计算机所处理的数据存放在内存内存就像个仓库，里面放着各种数据，我们定义的变量也在其中在计算机中，我们想找到某一变量，需要依靠地址查找就行去朋友家玩一样，先得知道朋友家的地址在哪，才能去到朋友家里 C语言变量1int a; 这里我们定义了一个变量，也可以说我们申请了一块内存空间用来存放数据，a是这块空间的别名 Scanf()1scanf(格式控制,地址表列); 注意：scanf函数中的格式控制后">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/xin.png">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/IMG_0625.JPG">
+<meta property="og:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/code.png">
+<meta property="article:published_time" content="2022-11-05T10:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-05T11:23:42.208Z">
+<meta property="article:author" content="Alan">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/xin.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/avatar.jpeg" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Alan</div></a></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" href="/index/">首页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a></nav>
+</header>
+
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">关于scanf函数地址列表的理解</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F"><span class="toc-text">C语言变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scanf"><span class="toc-text">Scanf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#amp-%E5%8F%B7"><span class="toc-text">&amp;号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%E6%9D%A5%E4%BA%86"><span class="toc-text">重点来了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E5%93%AA%E4%BA%9B%E6%83%85%E5%86%B5%E8%A6%81%E5%8A%A0-amp-%EF%BC%8C%E5%93%AA%E4%BA%9B%E5%8F%88%E4%B8%8D%E5%8A%A0%E5%91%A2"><span class="toc-text">那哪些情况要加&amp;，哪些又不加呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E4%BB%A5%E5%8F%8A%E4%B8%BE%E4%BE%8B"><span class="toc-text">资料以及举例</span></a></li></ol></div></div></div>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-11-05T10:00:00.000Z">2022-11-05</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>关于scanf函数地址列表的理解</span></h1>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>计算机所处理的数据存放在内存<br>内存就像个仓库，里面放着各种数据，我们定义的变量也在其中<br>在计算机中，我们想找到某一变量，需要依靠地址查找<br>就行去朋友家玩一样，先得知道朋友家的地址在哪，才能去到朋友家里</p>
+<h2 id="C语言变量"><a href="#C语言变量" class="headerlink" title="C语言变量"></a>C语言变量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a;</span><br></pre></td></tr></table></figure>
+<p>这里我们定义了一个变量，也可以说我们申请了一块内存空间用来存放数据，a是这块空间的别名</p>
+<h2 id="Scanf"><a href="#Scanf" class="headerlink" title="Scanf()"></a>Scanf()</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanf(格式控制,地址表列);</span><br></pre></td></tr></table></figure>
+<p>注意：scanf函数中的格式控制后面应当是变量地址，而不是变量名</p>
+<h2 id="amp-号"><a href="#amp-号" class="headerlink" title="&amp;号"></a>&amp;号</h2><p>“&amp;”又称为取址运算符，用于获取某一变量在内存中的地址</p>
+<h2 id="重点来了"><a href="#重点来了" class="headerlink" title="重点来了"></a>重点来了</h2><p>在scanf()后面填的应该是一个地址，而我们上面所定义的是一块空间的别名，或者说a是用来表明有那么一块空间存在。<br>所以我们需要用“&amp;”取址运算符来获取a这块空间的地址，来让scanf知道输入的数据，应该存放在内存的那个位置</p>
+<p>因为scanf后面填的是地址，所以有些后面学到的本身就是地址的，就可以直接填到scanf后面用于接收数据<br>例如：<br>    指针，数组名</p>
+<p>这些都是在后面所学，所以不清楚很正常<br>简单介绍下，指针定义就和定义普通变量一样，但要多加一个*号，他可以存放其他变量在内存中的地址，也可以说是位置，所以指针存放的是一个地址<br>数组名，其实就是数组第一个元素的地址，所以也是一个地址</p>
+<h2 id="那哪些情况要加-amp-，哪些又不加呢"><a href="#那哪些情况要加-amp-，哪些又不加呢" class="headerlink" title="那哪些情况要加&amp;，哪些又不加呢"></a>那哪些情况要加&amp;，哪些又不加呢</h2><p>小结一下：<br>    总的来说只要是地址类的就可以不加，普通变量一类的就要加<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/xin.png"></p>
+<p>因为指针是后面所学前期不理解很正常，学到后面知道指针是什么，回头再看scanf后面的地址列表是什么意思就明白了，前期的变量一般都要加&amp;</p>
+<h2 id="资料以及举例"><a href="#资料以及举例" class="headerlink" title="资料以及举例"></a>资料以及举例</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/IMG_0625.JPG"><br>以上是书本上的内容<br>以下是三种举例，两种是可以不用加&amp;的<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/C/code.png"></p>
+<p>以下是具体代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    int a;//a标示在内存中有一块空间名字为a</span><br><span class="line">    printf(&quot;a=&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">    printf(&quot;输入的a=%d\n&quot;,a);</span><br><span class="line">    char b[4];//定义可以存放4个char类型的数组</span><br><span class="line">    printf(&quot;输入字符串:&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;,b); //数入4个字符到b数组</span><br><span class="line">    printf(&quot;输入的字符串为：%s\n&quot;,b);  //打印数组b</span><br><span class="line">    int *p;//定义指针p ,定义指针p，*为定义指针的标示符</span><br><span class="line">    int c;//定义变量c</span><br><span class="line">    p=&amp;c;//指针p存放c的地址</span><br><span class="line">    printf(&quot;输入一个值存放到p指针：&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,p);//输入一个整型数据到指针所指向的位置,输入数据到指针p,因为p所指向的是c的地址，所以数据具体是存放在c中</span><br><span class="line">    printf(&quot;c的值为:%d\n&quot;,c);//打印c的值</span><br><span class="line">    printf(&quot;p的值为:%d\n&quot;,*p);//打印指针p的值，因为p是指针，所以需要用*取值运行符号</span><br><span class="line">    printf(&quot;指针p的地址为:%p\n&quot;,p);//打印指针地址</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>指针学习链接.</p>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_1" value="https://www.bilibili.com/video/BV17s411N78s?p=21&vd_source=d0bb45cb38d00ca4305644ec8d919620"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+<p>指针加数组学习链接，为什么数组可以不用加&amp;</p>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_2" value="https://www.bilibili.com/video/BV17s411N78s?p=23&vd_source=d0bb45cb38d00ca4305644ec8d919620"><button class="copy-btn" onclick="util.copy(&quot;copy_2&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/11/05/python_student/">python列表实现学生成绩管理系统</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/11/05/2022-11-5_python/">Python语法</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="alanosy/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.13.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.13.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
+  };
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
