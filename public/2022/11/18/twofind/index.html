@@ -5,7 +5,7 @@
   <meta name="generator" content="Hexo 5.4.2">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.13.0">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
@@ -20,15 +20,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>分类：网站搭建 - Alan</title>
+  <title>二分查找 - Alan</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Alan">
-<meta property="og:url" content="https://www.alan.org.cn/categories/%E8%AE%BE%E8%AE%A1%E5%BC%80%E5%8F%91/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/index.html">
+    <meta name="description" content="1 . 算法思想：二分查找又称折半查找，适合对已经排好序的数据集合进行查找，时间复杂度为O(log2n),效率高。对一升序的数据集合，先找出升序数据集合最中间的元素，将数据划分为两个子集，将最中间的元素和关键字进行比较，如果相等则返回，如果大于关键字，则在前一个数据子集中查找，如果想小于反之，直至找到为止 2 . 查找步骤：(1) 首先确定查找区间的中间位置（假定是一个升序的数组），那么mid &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分查找">
+<meta property="og:url" content="https://www.alan.org.cn/2022/11/18/twofind/index.html">
 <meta property="og:site_name" content="Alan">
+<meta property="og:description" content="1 . 算法思想：二分查找又称折半查找，适合对已经排好序的数据集合进行查找，时间复杂度为O(log2n),效率高。对一升序的数据集合，先找出升序数据集合最中间的元素，将数据划分为两个子集，将最中间的元素和关键字进行比较，如果相等则返回，如果大于关键字，则在前一个数据子集中查找，如果想小于反之，直至找到为止 2 . 查找步骤：(1) 首先确定查找区间的中间位置（假定是一个升序的数组），那么mid &#x3D;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-18T13:52:22.000Z">
+<meta property="article:modified_time" content="2022-11-18T13:53:39.628Z">
 <meta property="article:author" content="Alan">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
   
   
@@ -56,8 +61,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
   
@@ -72,44 +79,55 @@
 
 
 <div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">欢迎</span></div><div class="widget-body fs14"><p>欢迎光临小站，采用Hexo开源主题Stellar，此刚使用不久，有些功能还在研究中，敬请期待……</p>
-</div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2022/11/18/twofind/"><span class="title">二分查找</span></a><a class="item title" href="/2022/11/18/zhailu/"><span class="title">摘录</span></a><a class="item title" href="/2022/11/05/scanf/"><span class="title">关于scanf函数地址列表的理解</span></a><a class="item title" href="/2022/11/06/studentexe/"><span class="title">数组实现学生成绩管理系统成果展示</span></a><a class="item title" href="/2022/11/05/2022-11-5_python/"><span class="title">Python语法</span></a></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">二分查找</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-text">1 . 算法思想：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9F%A5%E6%89%BE%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-text">2 . 查找步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">3 . 代码实现</span></a></li></ol></div></div></div>
 
-<div class="widget-wrap" id="timeline"><div class="widget-header cap theme dis-select"><span class="name">近期动态</span></div><div class="widget-body fs14"><div class="tag-plugin timeline stellar-timeline-api" api="https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues"></div></div></div>
+
+
+
 </div>
 
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title"><img no-lazy height="32px" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/CubikLogo.png"/ onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></div></a></div>
-</header>
-
-
 
       
 
-  
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-11-18T13:52:22.000Z">2022-11-18</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>二分查找</span></h1>
+<h2 id="1-算法思想："><a href="#1-算法思想：" class="headerlink" title="1 . 算法思想："></a>1 . 算法思想：</h2><p>二分查找又称折半查找，适合对已经排好序的数据集合进行查找，时间复杂度为O(log2n),效率高。对一升序的数据集合，先找出升序数据集合最中间的元素，将数据划分为两个子集，将最中间的元素和关键字进行比较，如果相等则返回，如果大于关键字，则在前一个数据子集中查找，如果想小于反之，直至找到为止</p>
+<h2 id="2-查找步骤："><a href="#2-查找步骤：" class="headerlink" title="2 . 查找步骤："></a>2 . 查找步骤：</h2><p>(1) 首先确定查找区间的中间位置（假定是一个升序的数组），那么mid = left + ( right - left ) / 2 ;<br>//为了防止越界<br>(2) 用待查找值与中间位置值进行比较，若相等，则找到，输出<br>(3) 若大于，则在后半区域中继续进行折半查找<br>(4) 若小于，则在前半区域中继续进行折半查找<br>(5) 查找成功，则返回数值的数组下标</p>
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3 . 代码实现"></a>3 . 代码实现</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[10] = &#123; 1,2,3,4,5,6,7,8,9,10 &#125;;</span><br><span class="line">	int k = 7;</span><br><span class="line">	int sz = sizeof(arr) / sizeof(arr[0]);</span><br><span class="line">	int left = 0;</span><br><span class="line">	int right = sz - 1;</span><br><span class="line"></span><br><span class="line">	while (left&lt;=right)</span><br><span class="line">	&#123;</span><br><span class="line">		//int mid = (left + right) / 2;</span><br><span class="line">		int mid = left + (right - left) / 2;//防止数据过大，越界</span><br><span class="line"></span><br><span class="line">		if (arr[mid] &lt; k)</span><br><span class="line">		&#123;</span><br><span class="line">			left = mid + 1;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (arr[mid] &gt; k)</span><br><span class="line">		&#123;</span><br><span class="line">			right = mid - 1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;找到了，下标是:%d\n&quot;, mid);</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (left &gt; right)</span><br><span class="line">		printf(&quot;找不到\n&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/11/18/zhailu/">摘录</a></div></section></div>
 
 
-  
-
-<div class="nav-wrap"><nav class="sub post cap"><a href="/">近期发布</a><a class="active" href="/categories">分类：网站搭建</a><a href="/tags">标签</a><a href="/archives">归档</a></nav></div>
-
-  <div class="post-list post"><a class="post-card post " href="/2022/09/15/2022-09-15_Hexo-Linux%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-<article class="md"><h2 class="post-title">Hexo-Linux搭建博客</h2><div class="excerpt"><p>Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Gitee上，是搭建博客的首选框架。大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看  
-安装GitGit是目前世界上最先进的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理  
-1apt-g...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-09-15T13:07:32.000Z">2022-09-15</time></span><span class="cap breadcrumb">设计开发</span></div></article>
-</a></div>
-  
 
 
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="alanosy/blog-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
 
 
 
