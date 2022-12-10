@@ -1,7 +1,7 @@
 ---
 title: 爱因斯坦名言摘录
 date: 2022/12/10 10:08:22
-tag: [摘录]
+tags: [摘录]
 ---
 
 1.教育就是当一个人把在学校所学全部忘光之后剩下的东西。 Education is what remains after one has forgotten everything one has learned in school.  
