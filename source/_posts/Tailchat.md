@@ -2,6 +2,7 @@
 title: Docker项目-开源即时聊天应用——Tailchat
 date: 2022/12/23 12:45
 tags: [Docker]
+categories: [Docker]
 ---
 ## 服务器前期配置
 
