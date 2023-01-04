@@ -1,5 +1,5 @@
 ---
-title: NUmpy笔记
+title: Numpy笔记
 date: 2023/1/2 21:33:23
 tags: [Numpy]
 categories: [Numpy]
@@ -418,6 +418,7 @@ b = np.busday_count(enddates, begindates)
 print(a)  # 6
 print(b)  # -6
 参考图文
+
 
 https://www.jianshu.com/p/336cd77d9914
 https://www.cnblogs.com/gl1573/p/10549547.html#h2datetime64
