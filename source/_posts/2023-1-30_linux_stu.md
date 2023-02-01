@@ -5,7 +5,7 @@ tags: [文章分享]
 ---
 # 摘要
 此篇文章搬运自 程序员鱼皮。
-
+{% copy https://luxian.yupi.icu/ %}
 # Linux 学习路线
 
 > Linux 学习路线 by 程序员鱼皮
