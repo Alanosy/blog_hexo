@@ -321,3 +321,123 @@ public class JavaDemo1{
 ![](https://blog-alan.oss-cn-hangzhou.aliyuncs.com/java_aliyun/class_8.png)
 所谓的垃圾空间指的就是没有任何栈内存所指向的堆内存空间，所有的垃圾将被GC ( Garbage Collector、垃圾收集器)|
 不定期]进行回收并且释放无用内存空间，但是如果垃圾过多，一定将影响到GC的处理性能，从而降低整体的程序性能，那么在实际的.开发之中，对于垃圾的产生应该越少.越好。
+
+## 成员属性封装
+
+在类中的组成就是属性和方法，一般而言方法都是对外提供服务的，所以是不会进行封装处理，而对于属性由于其需要较高的安全性，所以往往需要对其进行保护，这个时候就需要采用封装性对属性进行保护
+在默认的情况下，对于类中的属性是可以通过利用其他类利用对象进行调用的
+
+范例：属性不封装情况下的问题
+
+``` java
+class Person {  // 定义一个类     String name ;  // 人员的姓名     int age ;    
+     public void tell (){
+        System.out.println("姓名："+name+"，年龄：" + age  );
+    }
+}
+
+public class JavaDemo1{  //主类
+    public static void main (String[] args){         
+        Person per = new Person();//声明并实例化对象         
+per.name = "张三" ;  //在类外部修改属性
+        per.age = 18 ;     //在类外部修改属性
+        per.tell();     
+    }
+}
+```
+
+此时在person类中提供的name和age两个属性并没有进行封装处理，这样外部就能进行调用了，但是有可能所设置的数据是错误的数据。如果要想解决这样的问题就可以利用private关键字对属性进行封装处理。
+
+范例：对属性进行封装
+
+``` java
+class Person {  // 定义一个类     
+private String name ;  // 人员的姓名          private  int age ;    
+        public void tell (){
+           System.out.println("姓名："+name+"，年龄：" + age  );
+    }
+}
+
+public class JavaDemo1{  //主类
+    public static void main (String[] args){         
+        Person per = new Person();//声明并实例化对象         
+per.name = "张三" ;  //在类外部修改属性
+        per.age = 18 ;     //在类外部修改属性
+        per.tell();     
+    }
+}
+```
+
+而属性一旦封装之后外部将不能够直接访问，即：外部不可见，但是对类的内部是可见的，那么如果要想让外部的程序可以访问封装的属性，，则在Java开发标准中提供有如下要求
+‒ 【setter，getter】设置或取得属性可以使用setXxx（），getXxx（）方法，以private string name为例
+
+```
+‒ 设置属性的方法：public void setName（String n）；
+‒ 获取属性方法：public String getName();
+```
+
+范例：实现封装
+
+``` java
+class Person {  // 定义一个类     
+private String name ;  // 人员的姓名          private  int age ;    
+        public void tell (){
+           System.out.println("姓名："+name+"，年龄：" + age  );
+public void setName（String n）{
+name = n ;
+}
+public void setAge(int a){
+if(a >= 0){
+age = a ;
+}
+}
+public String getName(){
+return name ;
+}
+public String getAge(){
+return age ;
+}
+    }
+}
+
+public class JavaDemo1{  //主类
+    public static void main (String[] args){         
+        Person per = new Person();//声明并实例化对象         
+per.setName("张三") ;  //在类外部修改属性
+        per.age(-18) ;     //在类外部修改属性
+        per.tell();     
+    }
+}
+```
+在以后进行任何类定义的时候一定要记住，类中所有属性都必须使用private封装。（98%），并且属性要进行访问必须要提供有setter，getter方法。
+
+## 构造方法与匿名对象
+
+现在程序在使用类的时候一般都按照类如下的步骤进行：
+	``● 声明并实例化对象，这个时候实例化对象中的属性并没有任何的数据存在，都是其数据类型的默认值
+	``● 需要通过一系列的setter方法为类中的属性设置内容
+等于说现在要想真正获得一个可以正常使用的实例化对象，必须通过两个步骤才可以实现。
+8个属性就要有8个setter
+专门提供有构造方法：通过构造方法实现对象中的属性初始化处理。只有在关键字new的时候构造方法。定义：
+	``● 方法名称必须与类名称保持一致；
+	``● 构造方法不允许设置任何的返回值类型，即没有返回值定义；
+	``● 构造方法是在使用关键字new实例化对象的时候自动调用的
+Person per = new Person("张三",18);
+对象实例化格式对比
+
+ 主要是定义对象所属类型，类型决定了你可以调用的方法；
+ 实例化对象的名称，所有的操作通过对象来进行访问；
+ 开辟一块新的堆内存空间；
+调用有参构造、 调用无参构造
+在Java程序里面考虑到程序结构的完整性，所有的类都会提供构造方法，也就是说你的类中没有任何的构造方法，那么系统自动创建什么都不做的构造方法，这个无参构造方法在程序编译的时候自动创建的。
+如果有一个构造方法的时候，这个默认的构造方法将不会被自动创建。
+一个类至少存在一个构造方法，永恒存在。
+既然构造方法本身是一个方法，那么方法就是具有重载的特点，而构造方法重载的时候只需要考虑类型和参数个数。
+范例：构造方法重载
+在进行多个构造方法定义的时候，强烈建议大家有一些定义的顺序，例如：可以按照参数的个数降序或升序排列。
+经过分析可以发现，构造方法的确是可以进行数据的设置，而对于setter也可以进行数据的设置，这个时候要清楚，构造方法是在对象实例化的时候为属性设置初始化内容，而setter除了拥有设置数据的功能之外，还具有修改数据的功能。
+经过分析之后可以发现，利用构造方法可以传递属性数据，于是现在进一步分析对象的产生格式：
+	``● 定义对象的名称：类名称 对象名称 = null；
+	``● 实例化对象：对象名称 = new 类名称()
+如果这个时候只是通过实例化对象来进行类的操作也是可以的，而这种形式的对象由于没有名字，我们叫他匿名对象。
+此时依然通过了对象进行了类中tell()方法的调用。但是由于此对象没有任何的引用，所以该对象使用一次之后就将成为垃圾，而所有的垃圾将被GC进行回收与释放。
