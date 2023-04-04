@@ -8,7 +8,16 @@ sidebar:
   # logo:
   #  title: '[<img no-lazy height="32px" src="https://blog-alan.oss-cn-hangzhou.aliyuncs.com/hexo_blog/CubikLogo.png"/>](/)'
 
+# comments: service: beaudar
+#   beaudar:
+#     repo: alanosy/blog-comments
 comments:
-  service: beaudar
-  beaudar:
-    repo: alanosy/blog-comments
+  service: artalk
+  # Artalk
+  # https://artalk.js.org/
+  artalk:
+    css: https://unpkg.com/artalk@2.4.3/dist/Artalk.css
+    js: https://unpkg.com/artalk@2.4.3/dist/Artalk.js 
+    server: # 后端服务地址
+    placeholder: ''
+    darkMode: auto
