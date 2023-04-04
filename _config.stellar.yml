@@ -30,10 +30,26 @@ comments:
     # Custom emoji
     emoji: 
       - https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs
-    #   - https://unpkg.com/@waline/emojis@1.1.0/weibo
-    #   - https://unpkg.com/@waline/emojis@1.1.0/alus
-    #   - https://unpkg.com/@waline/emojis@1.1.0/bilibili
-    #   - https://unpkg.com/@waline/emojis@1.1.0/qq
-    #   - https://unpkg.com/@waline/emojis@1.1.0/tieba
-    #   - https://unpkg.com/@waline/emojis@1.1.0/tw-emoji
-    #   - https://unpkg.com/@waline/emojis@1.1.0/bmoji
+      - https://unpkg.com/@waline/emojis@1.1.0/weibo
+      - https://unpkg.com/@waline/emojis@1.1.0/alus
+      - https://unpkg.com/@waline/emojis@1.1.0/bilibili
+      - https://unpkg.com/@waline/emojis@1.1.0/qq
+      - https://unpkg.com/@waline/emojis@1.1.0/tieba
+      - https://unpkg.com/@waline/emojis@1.1.0/tw-emoji
+      - https://unpkg.com/@waline/emojis@1.1.0/bmoji
+    # Comment infomation, valid meta are nick, mail and link
+    meta:
+      - nick
+      - mail
+      - link
+    # Set required meta field, e.g.: [nick] | [nick, mail]
+    requiredMeta:
+      - nick
+      - mail
+    # Language, available values: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+    lang: zh-CN
+    # Whether enable login, can choose from 'enable', 'disable' and 'force'
+    login: force
+    # comment per page
+    pageSize: 10
+
