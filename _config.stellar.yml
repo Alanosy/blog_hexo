@@ -24,8 +24,8 @@ comments:
     pageview: false
 
     # Custom locales
-    locale:
-      placeholder: # 输入框内提示文字
+    # locale:
+      # placeholder: # 输入框内提示文字
 
     # Custom emoji
     emoji: 
