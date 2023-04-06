@@ -48,3 +48,17 @@ related:
 #   api: https://api.github.com/repos/xaoxuu/hexo-theme-stellar/issues # 若你想限制数量，在api链接后面加上?per_page=1指限制为1条
 #   user: # 是否过滤只显示某个人发布的内容，如果要筛选多人，用英文逗号隔开
 #   hide: # title,footer # 隐藏标题或底部
+search:
+  layout: search
+  filter: auto # auto or '/path'
+  placeholder: 文章搜索 # 搜索框处显示的文字
+
+search_blog:
+  layout: search
+  filter: /blog/ # or /posts/ ...
+  placeholder: 文章搜索
+
+search_docs:
+  layout: search
+  filter: /wiki/
+  placeholder: 文档搜索
