@@ -55,7 +55,7 @@ comments:
     pageSize: 10
 
 article:
-  auto_cover: true
+  # auto_cover: true
   auto_excerpt: 200
 # 文章搜索
 search:
