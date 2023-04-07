@@ -76,18 +76,3 @@ Summary
 Gitbook pdf ./ ./mybook.pdf
 ```
 
-**提示：**
-初始化时如果出现TypeError: cb.apply is not a function错误
-![在这里插入图片描述](https://img-blog.csdnimg.cn/3dd9626e8ab4411ab8a3a7274ef280ec.png#pic_center)
-
-可以找到提示路径，打开 polyfills.js 文件，找到这个函数。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/a1fe881dbfa2456294d542cb96980b2f.png#pic_center)
-
-
-```
-fs.stat = statFix(fs.stat)
-fs.fstat = statFix(fs.fstat)
-fs.lstat = statFix(fs.lstat)
-```
-把这三行代码注释掉就解决报错了
-这是因为npm版本问题
