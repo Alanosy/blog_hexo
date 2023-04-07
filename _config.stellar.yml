@@ -1,7 +1,7 @@
 sidebar:
   menu:
-    index: '[首页](/index/)'
-    post: '[btn.blog](/)'
+    index: '[首页](/)'
+    post: '[btn.blog](/index/)'
     wiki: '[btn.wiki](/wiki/)'
     # notes: '[笔记](/notes/)'
     # more: '[更多](/more/)'
@@ -55,7 +55,7 @@ comments:
     pageSize: 10
 
 article:
-  # auto_cover: true
+    # auto_cover: true
   auto_excerpt: 200
 # 文章搜索
 search:
