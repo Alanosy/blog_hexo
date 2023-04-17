@@ -37,24 +37,25 @@ important 在英文中含义是“重要的”意思
 
 三、语法格式
 
- /*
+
 
 使用！Important属性的语法格式
 
 属性：值！Important
 
-*/
+
 
 P{
 
 加了！Important的属性它的权重值会变得无穷
 
+```
 Color:#foo！Important
 
 P1{Color:#foo ;
 
 #P2{Color:#foo；
-
+```
 一定要注意！import 的语法规则：
 
 Ø  正确的写法
@@ -280,13 +281,13 @@ Box-shadow:(两组阴影)3px 3px 3px 3px #f00,-4px -4px 2px 2px #DA70D6（颜色
  
 
 三、图片阴影
-
+```
 <title> 给图片设置阴影 </title>
 <style type="text/css">
 img{box-shadow: 2px 2px 2px 2px #FFA07A(颜色）；}
 </style></head><body>
 <img src="./images/1.jpg（图片）"></body></html>
-
+```
 ### Border-radius
 
 Border-radius：左上 右上 右下 左下
