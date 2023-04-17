@@ -188,7 +188,7 @@ E:nth-child(even)
 E;nth-child(odd)
 
 6.E:only-childo         匹配有且只有一个孩子
-````
+```
 ### border-collapse 
 简介
 这个属性主要是用于来合并边框线 其值为：collapse
@@ -252,7 +252,6 @@ box-shadow:  水平方向的阴影 垂直方向的阴影 阴影的清晰度 阴�
 
 Box-shadow:(两组阴影)3px 3px 3px 3px #f00,-4px -4px 2px 2px #DA70D6（颜色）0 inset;}
 
- 
 
 三、图片阴影
 ### Border-radius
@@ -286,5 +285,3 @@ Border:1px soild rgba(255,255,255,0.5)
 ```
 transition
 ```
-
-
