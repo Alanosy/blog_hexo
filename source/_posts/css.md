@@ -223,15 +223,38 @@ text-shadow:水平阴影 垂直阴影 模糊距离 阴影颜色。
 
 ●模糊强度，值越大越模糊。
 
+###  盒子阴影
+
+ 
+
+内容介绍
+
+一、Box-shadow
+
+二、盒子阴影
 
 三、图片阴影
-```
-<title> 给图片设置阴影 </title>
-<style type="text/css">
-img{box-shadow: 2px 2px 2px 2px #FFA07A(颜色）；}
-</style></head><body>
-<img src="./images/1.jpg（图片）"></body></html>
-```
+
+一、Box-shadow
+
+水平方向阴影、垂直方向阴影、模糊距离、阴影尺寸、阴影颜色、内/外阴影。
+
+二、盒子阴影
+border:1px solid#000;/*给这个盒子设置阴影语法格式:
+box-shadow:  水平方向的阴影 垂直方向的阴影 阴影的清晰度 阴影的大小 阴影的颜色 阴影的位置
+1.盒子阴影可以有多组值，多组之间用逗号隔开。
+
+2.水平阴影正值阴影在右边，负值在左边。
+
+3.垂直阴影正值在下边，负值在上边。
+
+4.模糊尺寸，值越大越模糊。
+
+Box-shadow:(两组阴影)3px 3px 3px 3px #f00,-4px -4px 2px 2px #DA70D6（颜色）0 inset;}
+
+ 
+
+三、图片阴影
 ### Border-radius
 
 Border-radius：左上 右上 右下 左下
