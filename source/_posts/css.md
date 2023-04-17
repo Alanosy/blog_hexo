@@ -168,3 +168,145 @@ position:absolute;
 
  绝对定位元素他会相对于其祖先定位元素来进行定位，这里的祖先定位元素可以是相对定位也可以是固定定位还可以是绝对定位，但是我们一般只会给其祖先定位元素设置相对定位属性“子绝父相”子元素设置绝对定位父元素设置相对定位。
 
+### 结构题伪类
+二、结构伪类
+```
+选择器                    功能
+
+1.E:first-child         匹配第一个孩子
+
+2.E;last-child          匹配最后一个孩子
+
+3.E:nth-child(n)        匹配第n个孩子
+
+4.E:nth-child(2n)或     匹配偶数的孩子
+
+E:nth-child(even)
+
+5. E:nth-child(2n+1)     匹配奇数的孩子
+
+E;nth-child(odd)
+
+6.E:only-childo         匹配有且只有一个孩子
+````
+### border-collapse 
+简介
+这个属性主要是用于来合并边框线 其值为：collapse
+```
+border-collapse : collapse;
+```
+### 伪元素
+```
+选择器                功能
+
+:first-letter         操作当前元素中第一个字
+
+:first-line           操作当前元素中第一行
+
+:beforerw             在之前插入，在一一个盒子内部的最前面
+
+:afterp               在之后插入，在一个盒子内部的最后面
+```
+### text-shadow
+
+text-shadow:水平阴影 垂直阴影 模糊距离 阴影颜色。
+
+注释: text-shadow 属性向文本添加一个或多个阴影。该属性是逗号分隔的阴影列表，每个阴影有两个或三个长度值和一个可选的颜色值进行规定。省略的长度是0。
+
+描述:
+
+●文字阴影可以有多组值，多组之间用逗号隔开就可以。
+
+●水平阴影正值阴影在右边，负值在左边。
+
+●垂直阴影正值在下边，负值在上边。
+
+●模糊强度，值越大越模糊。
+
+###  盒子阴影
+
+ 
+
+内容介绍
+
+一、Box-shadow
+
+二、盒子阴影
+
+三、图片阴影
+
+ 
+
+一、Box-shadow
+
+水平方向阴影、垂直方向阴影、模糊距离、阴影尺寸、阴影颜色、内/外阴影。
+
+ 
+
+二、盒子阴影
+```
+<title>盒子阴影</title>
+<style type="text/css")
+.boxf
+width:100px;height:100px;
+```
+border:1px solid#000;/*给这个盒子设置阴影语法格式:
+box-shadow:  水平方向的阴影 垂直方向的阴影 阴影的清晰度 阴影的大小 阴影的颜色 阴影的位置
+```
+inset outset (默认值);*/box-shadow:3px 3px 3px 3px #f00;}
+
+</style></head></boby></div class=”box”></div>
+```
+1.盒子阴影可以有多组值，多组之间用逗号隔开。
+
+2.水平阴影正值阴影在右边，负值在左边。
+
+3.垂直阴影正值在下边，负值在上边。
+
+4.模糊尺寸，值越大越模糊。
+
+Box-shadow:(两组阴影)3px 3px 3px 3px #f00,-4px -4px 2px 2px #DA70D6（颜色）0 inset;}
+
+ 
+
+三、图片阴影
+```
+<title> 给图片设置阴影 </title>
+<style type="text/css">
+img{box-shadow: 2px 2px 2px 2px #FFA07A(颜色）；}
+</style></head><body>
+<img src="./images/1.jpg（图片）"></body></html>
+```
+### Border-radius
+
+Border-radius：左上 右上 右下 左下
+
+### 透明度
+
+CSS 透明度
+
+只要是颜色，都可以用透明度
+
+Rgba（红色，绿色，蓝色，透明度）
+
+a：表示透明度的意思  透明度取值：0~1之间  0表示完全透明  1表示不透明
+
+·背景颜色透明
+
+Background-color:rgba(255,255,255,0.3)
+
+·文件颜色透明
+
+Coler:rgba(255,255,255,0.3)
+
+·边框颜色透明
+
+Border:1px soild rgba(255,255,255,0.5)
+
+
+### 过渡
+```
+transition
+```
+
+
