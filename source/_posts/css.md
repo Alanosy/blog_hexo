@@ -11,8 +11,6 @@ tags: [技术分享]
 
 ### ！Important 属性
 
- 
-
 内容介绍
 
 一、什么是 important
@@ -21,29 +19,19 @@ tags: [技术分享]
 
 三、语法格式
 
- 
-
 一、什么是 important
 
 important 在英文中含义是“重要的”意思
-
- 
 
 二、!important 在 CSS 中的作用
 
 它主要是用来提升属性的女重。其属性的权重值无穷大
 
- 
-
 三、语法格式
-
-
 
 使用！Important属性的语法格式
 
 属性：值！Important
-
-
 
 P{
 
@@ -138,9 +126,9 @@ position:fixed
 
 #### 二、相对定位
 相对定位相当于“自己”来定位；
-
+```
 语法：position: relative;            
-
+```
 特点：
 
 1.相对定位元素它没有脱离标准文档流
@@ -164,9 +152,10 @@ Lift: 100px;
 相对定位元素一般很少单独使用，主要是用来配合“绝对定位”元素来使用
 
 #### 三、绝对定位
+```
 语法:
 position:absolute;
-
+```
 三、特点
 
 特点：
@@ -181,7 +170,7 @@ position:absolute;
 
 ### 结构题伪类
 二、结构伪类
-
+```
 选择器                    功能
 
 1.E:first-child         匹配第一个孩子
@@ -199,15 +188,15 @@ E:nth-child(even)
 E;nth-child(odd)
 
 6.E:only-childo         匹配有且只有一个孩子
-
+````
 ### border-collapse 
 简介
 这个属性主要是用于来合并边框线 其值为：collapse
-
+```
 border-collapse : collapse;
-
+```
 ### 伪元素
-
+```
 选择器                功能
 
 :first-letter         操作当前元素中第一个字
@@ -217,7 +206,7 @@ border-collapse : collapse;
 :beforerw             在之前插入，在一一个盒子内部的最前面
 
 :afterp               在之后插入，在一个盒子内部的最后面
-
+```
 ### text-shadow
 
 text-shadow:水平阴影 垂直阴影 模糊距离 阴影颜色。
@@ -255,19 +244,19 @@ text-shadow:水平阴影 垂直阴影 模糊距离 阴影颜色。
  
 
 二、盒子阴影
-
+```
 <title>盒子阴影</title>
 <style type="text/css")
 .boxf
 width:100px;height:100px;
-
+```
 border:1px solid#000;/*给这个盒子设置阴影语法格式:
 box-shadow:  水平方向的阴影 垂直方向的阴影 阴影的清晰度 阴影的大小 阴影的颜色 阴影的位置
-
+```
 inset outset (默认值);*/box-shadow:3px 3px 3px 3px #f00;}
 
 </style></head></boby></div class=”box”></div>
-
+```
 1.盒子阴影可以有多组值，多组之间用逗号隔开。
 
 2.水平阴影正值阴影在右边，负值在左边。
@@ -316,8 +305,8 @@ Border:1px soild rgba(255,255,255,0.5)
 
 
 ### 过渡
-
+```
 transition
-
+```
 
 
