@@ -269,44 +269,4 @@ Box-shadow:(两组阴影)3px 3px 3px 3px #f00,-4px -4px 2px 2px #DA70D6（颜色
 
  
 
-三、图片阴影
-```
-<title> 给图片设置阴影 </title>
-<style type="text/css">
-img{box-shadow: 2px 2px 2px 2px #FFA07A(颜色）；}
-</style></head><body>
-<img src="./images/1.jpg（图片）"></body></html>
-```
-### Border-radius
-
-Border-radius：左上 右上 右下 左下
-
-### 透明度
-
-CSS 透明度
-
-只要是颜色，都可以用透明度
-
-Rgba（红色，绿色，蓝色，透明度）
-
-a：表示透明度的意思  透明度取值：0~1之间  0表示完全透明  1表示不透明
-
-·背景颜色透明
-
-Background-color:rgba(255,255,255,0.3)
-
-·文件颜色透明
-
-Coler:rgba(255,255,255,0.3)
-
-·边框颜色透明
-
-Border:1px soild rgba(255,255,255,0.5)
-
-
-### 过渡
-```
-transition
-```
-
 
