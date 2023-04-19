@@ -59,7 +59,8 @@ main:是一个系统定义好的方法名称
 String args[]:字符串的数组，可以实现程序启动参数的接收
 
 ### JavaDoc 文档介绍
-
+```
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html```
 类的完整定义
 类的相关说明
 成员属性的摘要
@@ -69,5 +70,13 @@ String args[]:字符串的数组，可以实现程序启动参数的接收
 
 最后部分就是堆方法和成员的详细解释
 
-## 字符串与字符数组
+### 字符串与字符数组
 p81
+
+### 字符串与字节
+
+### 字符串比较
+equals()
+注意会区分大小写
+equalsIgnoreCase()
+不区分大小写比较
