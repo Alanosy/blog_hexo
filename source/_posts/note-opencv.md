@@ -1,5 +1,5 @@
 ---
-title: opencv
+title: opencv笔记
 date: 2023-04-17 16:38
 tags: [技术分享]
 ---
