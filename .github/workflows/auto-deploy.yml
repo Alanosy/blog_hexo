@@ -1,0 +1,50 @@
+n{ secrets.DEPLOY_KEY }}
+        external_repository: xaoxuu/xaoxuu.github.io
+        publish_branch: gh-pages
+        publish_dir: ./public
+        commit_message: ${{ github.event.head_commit.message }}
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+    # 5. 部署到服务器（可选）
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v3
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        ARGS: "-rltgoDzvO --delete"
+        EXCLUDE: ".well-known, .user.ini"
+        SOURCE: public/
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        TARGET: ${{ secrets.TARGET }}ame: auto deploy
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 运行环境为最新版 Ubuntu
+    name: auto deploy
+    steps:
+    # 1. 获取源码
+    - name: Checkout
+      uses: actions/checkout@v3 # 使用 actions/checkout@v3
+      with: # 条件
+        submodules: true # Checkout private submodules(themes or something else). 当有子模块时切换分支？
+    # 2. 配置环境
+    - name: Setup Node.js 18.12.x
+      uses: actions/setup-node@master
+      with:
+        node-version: "18.12.x"
+    # 3. 生成静态文件
+    - name: Generate Public Files
+      run: |
+        npm i
+        npm install hexo-cli -g
+        hexo clean && hexo generate
+    # 4. 部署到 GitHub 仓库（可选）
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${
