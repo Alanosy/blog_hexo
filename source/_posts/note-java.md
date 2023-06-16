@@ -175,3 +175,14 @@ class 子类 extends 父类{}
 
 不存在继承关系,是所有类的父类，考研接收所有子类
 所有引用类型可以用 Object 类接收
+
+## 107 获取对象信息
+
+.toString()
+获取对象信息
+编写简单 java 类时覆写 toString
+
+## equals()
+
+主要比较对象内容是否完全相同
+Object 中的 equals 覆写
